@@ -1,13 +1,32 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 export default function App() {
-  const [text, setText] = useState([]);
+  const [resultText, setText] = useState('');
+  const [isResult, setResult] = useState(false);
+  const OnButtonClick = text => {
+    console.log(text);
+
+    setText(resultText + text);
+  };
+  const CheckResult = () => {
+    if (resultText == '1+3+9') {
+      setResult(true);
+      console.log('Result', resultText);
+    } else {
+      console.log('invalid Result', resultText);
+      setResult(false);
+    }
+  };
+  useEffect(() => {
+    CheckResult()
+  });
+
   return (
     <View style={styles.container}>
       <View
         style={{flex: 1, alignSelf: 'flex-end', justifyContent: 'flex-end'}}>
-        <Text style={styles.outputText}>{text}</Text>
+        <Text style={styles.outputText}>{resultText}</Text>
       </View>
       <View style={styles.split}></View>
       <View style={{flex: 1.2, paddingTop: 10}}>
@@ -16,7 +35,7 @@ export default function App() {
             style={styles.inputButton}
             style={styles.inputButton}
             onPress={() => {
-              setText('/');
+              OnButtonClick('/');
             }}>
             /
           </Text>
@@ -24,7 +43,7 @@ export default function App() {
             style={styles.inputButton}
             style={styles.inputButton}
             onPress={() => {
-              setText('X');
+              OnButtonClick('x');
             }}>
             X
           </Text>
@@ -32,21 +51,19 @@ export default function App() {
             style={styles.inputButton}
             style={styles.inputButton}
             onPress={() => {
-              setText('-');
+              OnButtonClick('-');
             }}>
             -
           </Text>
           <Text
             style={styles.inputButton}
             onPress={() => {
-              setText('+');
+              OnButtonClick('+');
             }}>
             +
           </Text>
           <View style={styles.circle}>
-            <Text style={styles.equalButton} onPress={() => {}}>
-              =
-            </Text>
+            <Text style={styles.equalButton}>=</Text>
           </View>
         </View>
         <View style={{marginRight: 50, marginTop: 20}}>
@@ -58,11 +75,18 @@ export default function App() {
               }}>
               C
             </Text>
-            <Text style={styles.inputButton}>+/-</Text>
+            <Text
+              style={styles.inputButton}
+              style={styles.inputButton}
+              onPress={() => {
+                OnButtonClick('+/-');
+              }}>
+              +/-
+            </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('%');
+                OnButtonClick('%');
               }}>
               %
             </Text>
@@ -71,21 +95,21 @@ export default function App() {
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('7');
+                OnButtonClick('7');
               }}>
               7
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('8');
+                OnButtonClick('8');
               }}>
               8
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('9');
+                OnButtonClick('9');
               }}>
               9
             </Text>
@@ -94,21 +118,21 @@ export default function App() {
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('4');
+                OnButtonClick('4');
               }}>
               4
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('5');
+                OnButtonClick('5');
               }}>
               5
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('6');
+                OnButtonClick('6');
               }}>
               6
             </Text>
@@ -117,21 +141,21 @@ export default function App() {
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('1');
+                OnButtonClick('1');
               }}>
               1
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('6');
+                OnButtonClick('2');
               }}>
               2
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('3');
+                OnButtonClick('3');
               }}>
               3
             </Text>
@@ -140,27 +164,37 @@ export default function App() {
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('.');
+                OnButtonClick('.');
               }}>
               .
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('0');
+                OnButtonClick('0');
               }}>
               0
             </Text>
             <Text
               style={styles.inputButton}
               onPress={() => {
-                setText('00');
+                OnButtonClick('00');
               }}>
               00
             </Text>
           </View>
         </View>
       </View>
+      {isResult ? (
+        <TouchableOpacity
+          style={styles.ResultView}
+          onPress={() => {
+            setResult(false);
+            setText('')
+          }}>
+          <Text style={{fontSize: 25, color: '#f0f0f0'}}>Hello World</Text>
+        </TouchableOpacity>
+      ) : null}
     </View>
   );
 }
@@ -209,5 +243,19 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: '#7e807f',
     margin: 20,
+  },
+  ResultView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 280,
+    width: 250,
+    position: 'absolute',
+    flex: 1,
+    backgroundColor: '#9c9e9d',
+    borderRadius: 30,
+    elevation: 4,
+    alignSelf: 'center',
+    marginVertical: 200,
+    opacity: 0.8,
   },
 });
