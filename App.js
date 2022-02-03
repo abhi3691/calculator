@@ -18,6 +18,21 @@ export default function App() {
       setResult(false);
     }
   };
+
+    const operationClick =(text) =>{
+      let operations = ['c','+/-','%','/','x','-','+']
+      if(text == 'c'){
+        setText('');
+        setResult(false);
+        return
+      }
+      if(text == '+/-'){
+        return setText(resultText.toString().substring(0,resultText.length-1))
+      }
+      if(operations.includes(resultText.toString().split("").pop())) return;
+      setText(resultText+text)
+    }  
+
   useEffect(() => {
     CheckResult();
   });
@@ -32,30 +47,31 @@ export default function App() {
       <View style={{flex: 1.2, paddingTop: 10}}>
         <View style={styles.operatorView}>
           <TouchableOpacity
+          
             style={styles.circle2}
             onPress={() => {
-              OnButtonClick('/');
+              operationClick('/');
             }}>
             <Text style={styles.inputButton}>/</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.circle2}
             onPress={() => {
-              OnButtonClick('x');
+              operationClick('x');
             }}>
             <Text style={styles.inputButton}>X</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.circle2}
             onPress={() => {
-              OnButtonClick('-');
+              operationClick('-');
             }}>
             <Text style={styles.inputButton}>-</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.circle2}
             onPress={() => {
-              OnButtonClick('+');
+              operationClick('+');
             }}>
             <Text style={styles.inputButton}>+</Text>
           </TouchableOpacity>
@@ -68,22 +84,21 @@ export default function App() {
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                setText('');
-                setResult(false);
+                operationClick('c')
               }}>
               <Text style={styles.inputButton}>C</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('+/-');
+                operationClick('+/-');
               }}>
               <Text style={styles.inputButton}>+/-</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('%');
+                operationClick('%');
               }}>
               <Text style={styles.inputButton}>%</Text>
             </TouchableOpacity>
@@ -92,21 +107,21 @@ export default function App() {
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('7');
+                OnButtonClick(7);
               }}>
               <Text style={styles.inputButton}>7</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('8');
+                OnButtonClick(8);
               }}>
               <Text style={styles.inputButton}>8</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('9');
+                OnButtonClick(9);
               }}>
               <Text style={styles.inputButton}>9</Text>
             </TouchableOpacity>
@@ -115,21 +130,21 @@ export default function App() {
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('4');
+                OnButtonClick(4);
               }}>
               <Text style={styles.inputButton}>4</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('5');
+                OnButtonClick(5);
               }}>
               <Text style={styles.inputButton}>5</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('6');
+                OnButtonClick(6);
               }}>
               <Text style={styles.inputButton}>6</Text>
             </TouchableOpacity>
@@ -138,21 +153,21 @@ export default function App() {
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('1');
+                OnButtonClick(1);
               }}>
               <Text style={styles.inputButton}>1</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('2');
+                OnButtonClick(2);
               }}>
               <Text style={styles.inputButton}>2</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('3');
+                OnButtonClick(3);
               }}>
               <Text style={styles.inputButton}>3</Text>
             </TouchableOpacity>
@@ -168,7 +183,7 @@ export default function App() {
             <TouchableOpacity
               style={styles.circle2}
               onPress={() => {
-                OnButtonClick('0');
+                OnButtonClick(0);
               }}>
               <Text style={styles.inputButton}>0</Text>
             </TouchableOpacity>
