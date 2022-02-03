@@ -26,9 +26,6 @@ export default function App() {
         setResult(false);
         return
       }
-      if(text == '+/-'){
-        return setText(resultText.toString().substring(0,resultText.length-1))
-      }
       if(operations.includes(resultText.toString().split("").pop())) return;
       setText(resultText+text)
     }  
