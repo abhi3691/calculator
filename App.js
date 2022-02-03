@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {circle} from 'react-native/Libraries/Animated/Easing';
 
 export default function App() {
   const [resultText, setText] = useState('');
@@ -32,194 +31,153 @@ export default function App() {
       <View style={styles.split}></View>
       <View style={{flex: 1.2, paddingTop: 10}}>
         <View style={styles.operatorView}>
-        <TouchableOpacity style={styles.circle2}>
-          <Text
-            style={styles.inputButton}
-            style={styles.inputButton}
+          <TouchableOpacity
+            style={styles.circle2}
             onPress={() => {
               OnButtonClick('/');
             }}>
-            /
-          </Text>
+            <Text style={styles.inputButton}>/</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.circle2}>
-          <Text
-            style={styles.inputButton}
-            style={styles.inputButton}
+          <TouchableOpacity
+            style={styles.circle2}
             onPress={() => {
               OnButtonClick('x');
             }}>
-            X
-          </Text>
+            <Text style={styles.inputButton}>X</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.circle2}>
-          <Text
-            style={styles.inputButton}
-            style={styles.inputButton}
+          <TouchableOpacity
+            style={styles.circle2}
             onPress={() => {
               OnButtonClick('-');
             }}>
-            -
-          </Text>
+            <Text style={styles.inputButton}>-</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.circle2}>
-          <Text
-            style={styles.inputButton}
+          <TouchableOpacity
+            style={styles.circle2}
             onPress={() => {
               OnButtonClick('+');
             }}>
-            +
-          </Text>
+            <Text style={styles.inputButton}>+</Text>
           </TouchableOpacity>
-          <View style={styles.circle}>
+          <TouchableOpacity style={styles.circle}>
             <Text style={styles.equalButton}>=</Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={{marginRight: 50, marginTop: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-            <TouchableOpacity style={styles.circle2}>
-              <Text
-              style={styles.inputButton}
-                onPress={() => {
-                  setText('');
-                  setResult(false);
-                }}>
-                C
-              </Text>
+            <TouchableOpacity
+              style={styles.circle2}
+              onPress={() => {
+                setText('');
+                setResult(false);
+              }}>
+              <Text style={styles.inputButton}>C</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('+/-');
               }}>
-              +/-
-            </Text>
+              <Text style={styles.inputButton}>+/-</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('%');
               }}>
-              %
-            </Text>
+              <Text style={styles.inputButton}>%</Text>
             </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-          <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('7');
               }}>
-              7
-            </Text>
+              <Text style={styles.inputButton}>7</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('8');
               }}>
-              8
-            </Text>
+              <Text style={styles.inputButton}>8</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('9');
               }}>
-              9
-            </Text>
+              <Text style={styles.inputButton}>9</Text>
             </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-          <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('4');
               }}>
-              4
-            </Text>
+              <Text style={styles.inputButton}>4</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('5');
               }}>
-              5
-            </Text>
+              <Text style={styles.inputButton}>5</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('6');
               }}>
-              6
-            </Text>
+              <Text style={styles.inputButton}>6</Text>
             </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-          <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('1');
               }}>
-              1
-            </Text>
+              <Text style={styles.inputButton}>1</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('2');
               }}>
-              2
-            </Text>
+              <Text style={styles.inputButton}>2</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('3');
               }}>
-              3
-            </Text>
+              <Text style={styles.inputButton}>3</Text>
             </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-          <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('.');
               }}>
-              .
-            </Text>
+              <Text style={styles.inputButton}>.</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('0');
               }}>
-              0
-            </Text>
+              <Text style={styles.inputButton}>0</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.circle2}>
-            <Text
-              style={styles.inputButton}
+            <TouchableOpacity
+              style={styles.circle2}
               onPress={() => {
                 OnButtonClick('00');
               }}>
-              00
-            </Text>
+              <Text style={styles.inputButton}>00</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -252,7 +210,6 @@ const styles = StyleSheet.create({
   inputButton: {
     fontSize: 30,
     color: '#7e807f',
-   
   },
   equalButton: {
     fontSize: 30,
@@ -284,7 +241,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical:3.5,
+    marginVertical: 3.5,
   },
   outputText: {
     fontSize: 40,
