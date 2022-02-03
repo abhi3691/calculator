@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {circle} from 'react-native/Libraries/Animated/Easing';
 
 export default function App() {
   const [resultText, setText] = useState('');
@@ -19,7 +20,7 @@ export default function App() {
     }
   };
   useEffect(() => {
-    CheckResult()
+    CheckResult();
   });
 
   return (
@@ -31,6 +32,7 @@ export default function App() {
       <View style={styles.split}></View>
       <View style={{flex: 1.2, paddingTop: 10}}>
         <View style={styles.operatorView}>
+        <TouchableOpacity style={styles.circle2}>
           <Text
             style={styles.inputButton}
             style={styles.inputButton}
@@ -39,6 +41,8 @@ export default function App() {
             }}>
             /
           </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.circle2}>
           <Text
             style={styles.inputButton}
             style={styles.inputButton}
@@ -47,6 +51,8 @@ export default function App() {
             }}>
             X
           </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.circle2}>
           <Text
             style={styles.inputButton}
             style={styles.inputButton}
@@ -55,6 +61,8 @@ export default function App() {
             }}>
             -
           </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.circle2}>
           <Text
             style={styles.inputButton}
             onPress={() => {
@@ -62,27 +70,33 @@ export default function App() {
             }}>
             +
           </Text>
+          </TouchableOpacity>
           <View style={styles.circle}>
             <Text style={styles.equalButton}>=</Text>
           </View>
         </View>
         <View style={{marginRight: 50, marginTop: 20}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-            <Text
+            <TouchableOpacity style={styles.circle2}>
+              <Text
               style={styles.inputButton}
-              onPress={() => {
-                setText(' ');
-              }}>
-              C
-            </Text>
+                onPress={() => {
+                  setText('');
+                  setResult(false);
+                }}>
+                C
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
-              style={styles.inputButton}
               style={styles.inputButton}
               onPress={() => {
                 OnButtonClick('+/-');
               }}>
               +/-
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -90,8 +104,10 @@ export default function App() {
               }}>
               %
             </Text>
+            </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+          <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -99,6 +115,8 @@ export default function App() {
               }}>
               7
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -106,6 +124,8 @@ export default function App() {
               }}>
               8
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -113,8 +133,10 @@ export default function App() {
               }}>
               9
             </Text>
+            </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+          <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -122,6 +144,8 @@ export default function App() {
               }}>
               4
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -129,6 +153,8 @@ export default function App() {
               }}>
               5
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -136,8 +162,10 @@ export default function App() {
               }}>
               6
             </Text>
+            </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+          <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -145,6 +173,8 @@ export default function App() {
               }}>
               1
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -152,6 +182,8 @@ export default function App() {
               }}>
               2
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -159,8 +191,10 @@ export default function App() {
               }}>
               3
             </Text>
+            </TouchableOpacity>
           </View>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+          <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -168,6 +202,8 @@ export default function App() {
               }}>
               .
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -175,6 +211,8 @@ export default function App() {
               }}>
               0
             </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.circle2}>
             <Text
               style={styles.inputButton}
               onPress={() => {
@@ -182,6 +220,7 @@ export default function App() {
               }}>
               00
             </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -190,7 +229,7 @@ export default function App() {
           style={styles.ResultView}
           onPress={() => {
             setResult(false);
-            setText('')
+            setText('');
           }}>
           <Text style={{fontSize: 25, color: '#f0f0f0'}}>Hello World</Text>
         </TouchableOpacity>
@@ -213,7 +252,7 @@ const styles = StyleSheet.create({
   inputButton: {
     fontSize: 30,
     color: '#7e807f',
-    paddingVertical: 12,
+   
   },
   equalButton: {
     fontSize: 30,
@@ -238,6 +277,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f5be',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  circle2: {
+    height: 60,
+    width: 60,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical:3.5,
   },
   outputText: {
     fontSize: 40,
